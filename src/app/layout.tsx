@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Background } from "@/components/Background";
-import { Search } from "@/components/Search";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignOutButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,10 +24,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={inter.className}>
-        <Background>{children}</Background>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" className="dark">
+        <body className={inter.className}>
+          <Background>
+            <div className="mx-6 flex flex-col justify-items-end">
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+            </div>
+
+            {children}
+          </Background>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
