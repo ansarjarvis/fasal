@@ -20,8 +20,8 @@ interface MovieProps {
   movie: {
     Title: String;
     title?: String;
-    Poster: String;
-    poster?: String;
+    Poster: string;
+    poster?: string;
     Year: String;
     year: String;
   };
