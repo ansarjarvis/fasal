@@ -32,7 +32,7 @@ let Page: FC<pageProps> = ({}) => {
     router.push("/");
     setTimeout(() => {
       window.location.reload();
-    }, 200); // slight delay to ensure navigation happens
+    }, 300); // slight delay to ensure navigation happens
   };
 
   return (
