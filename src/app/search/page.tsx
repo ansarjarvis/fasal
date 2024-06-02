@@ -19,7 +19,7 @@ let Page: FC<pageProps> = ({}) => {
   useEffect(() => {
     let fetchData = async function () {
       let response = await fetch(
-        ` http://www.omdbapi.com/?s=${movieName}&apikey=b434076e`
+        `https://www.omdbapi.com/?s=${movieName}&apikey=b434076e`
       );
       let movies = await response.json();
       setMovies(movies);
