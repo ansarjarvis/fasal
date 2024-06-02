@@ -3,11 +3,11 @@ import Movie from "./Movie";
 import { Loader2 } from "lucide-react";
 import { Button } from "./ui/button";
 
-interface MoviesListProps {
-  movies: Object | undefined;
-}
+// interface MoviesListProps {
+//   movies: Object | undefined;
+// }
 
-let MoviesList: FC<MoviesListProps> = ({ movies }) => {
+let MoviesList = ({ movies }: { movies: any }) => {
   if (movies === undefined)
     return (
       <div className="flex flex-row justify-center">
@@ -22,8 +22,8 @@ let MoviesList: FC<MoviesListProps> = ({ movies }) => {
 
   return (
     <div className=" mx-6 mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-      {moviesList.map((movie: object) => {
-        return <Movie key={movie.imdbID} movie={movie} />;
+      {moviesList.map((movie: any) => {
+        return <Movie key={Math.random()} movie={movie} />;
       })}
     </div>
   );

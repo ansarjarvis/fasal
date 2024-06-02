@@ -22,7 +22,7 @@ export default async function Home() {
         <h4 className="mx-6 mt-4">Your watchlist be shown here</h4>
       )}
       <div className=" mx-6 mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-        {wishlistedMovies.map((movie) => {
+        {wishlistedMovies.map((movie: any) => {
           return <Movie key={Math.random()} movie={movie} />;
         })}
       </div>
