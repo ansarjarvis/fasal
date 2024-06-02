@@ -16,6 +16,9 @@ import {
 
 import { Button } from "@/components/ui/button";
 
+import { useRouter } from "next/navigation";
+import { useToast } from "./ui/use-toast";
+
 interface MovieProps {
   movie: {
     Title: String;
@@ -28,11 +31,18 @@ interface MovieProps {
 }
 
 let Movie: FC<MovieProps> = ({ movie }) => {
+  let router = useRouter();
+  let { toast } = useToast();
+
   let watchListHandler = async () => {
     try {
       let response = await axios.post("/api/watchlist", { movie });
       if (response.status == 200) {
-        console.log("wishlist created successfully");
+        router.refresh();
+        toast({
+          variant: "destructive",
+          title: "Added to the watchlist",
+        });
       }
     } catch (err) {
       console.log(err);
@@ -40,7 +50,11 @@ let Movie: FC<MovieProps> = ({ movie }) => {
   };
 
   let removeWatchListHandler = async () => {
-    console.log("removed from watch list");
+    router.refresh();
+    toast({
+      variant: "destructive",
+      title: "Remove functionality will be available in Future version",
+    });
   };
 
   return (
