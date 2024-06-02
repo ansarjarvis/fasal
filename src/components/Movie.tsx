@@ -17,7 +17,14 @@ import {
 import { Button } from "@/components/ui/button";
 
 interface MovieProps {
-  movie: Object;
+  movie: {
+    Title: String;
+    title?: String;
+    Poster: String;
+    poster?: String;
+    Year: String;
+    year: String;
+  };
 }
 
 let Movie: FC<MovieProps> = ({ movie }) => {
@@ -43,7 +50,6 @@ let Movie: FC<MovieProps> = ({ movie }) => {
           <div className="relative">
             <img
               src={movie.Poster || movie.poster}
-              alt={movie.Title}
               width={400}
               height={400}
               className="w-full h-64 object-cover"
@@ -52,9 +58,7 @@ let Movie: FC<MovieProps> = ({ movie }) => {
               <h3 className="text-lg font-bold text-white mb-1">
                 {movie.Title || movie.title}
               </h3>
-              <p className="text-gray-300 text-sm line-clamp-2">
-                {movie.Description || movie.year}
-              </p>
+              <p className="text-gray-300 text-sm line-clamp-2">{movie.year}</p>
             </div>
           </div>
         </div>
@@ -65,7 +69,6 @@ let Movie: FC<MovieProps> = ({ movie }) => {
           <DialogDescription>{movie.Year || movie.year}</DialogDescription>
           <img
             src={movie.Poster || movie.poster}
-            alt={movie.Title}
             width={400}
             height={400}
             className="w-full h-64 object-cover"
