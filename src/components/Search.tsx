@@ -20,7 +20,7 @@ export function Search() {
   };
 
   return (
-    <div className="h-[40rem] flex flex-col justify-start px-4">
+    <div className="h-full flex flex-col justify-start px-4">
       <h2 className="mb-10 sm:mb-20 text-xl text-center sm:text-5xl dark:text-white text-black">
         FASAL
       </h2>

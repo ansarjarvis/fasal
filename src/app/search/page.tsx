@@ -28,15 +28,18 @@ let Page: FC<pageProps> = ({}) => {
     fetchData();
   }, [movieName]);
 
+  const handleGoBack = () => {
+    router.push("/");
+    setTimeout(() => {
+      window.location.reload();
+    }, 100); // slight delay to ensure navigation happens
+  };
+
   return (
     <>
       <div className="flex flex-row justify-between">
         <h1 className="mx-6 ">Showing Search for {movieName}</h1>
-        <Button
-          className="mr-6"
-          variant="outline"
-          onClick={() => router.push("/")}
-        >
+        <Button className="mr-6" variant="outline" onClick={handleGoBack}>
           <ChevronLeft className="h-4 w-4 mr-3" />
           Go Back
         </Button>
